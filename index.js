@@ -5,11 +5,11 @@ const PerformanceNow = global.nativePerformanceNow || global.performanceNow || f
 
 let startTimes = {};
 
-console.time = label => {
+console.time = console.time || label => {
     startTimes[label] = PerformanceNow();
 };
 
-console.timeEnd = label => {
+console.timeEnd = console.timeEnd || label => {
     let endTime = PerformanceNow();
     if (startTimes[label]) {
         let delta = endTime - startTimes[label];
