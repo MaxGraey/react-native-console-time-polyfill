@@ -1,0 +1,24 @@
+{
+    "version": "0.0.1",
+    "name": "react-native-console-time-polyfill",
+    "description": "console.time and console.timeEnd polyfill for react-native",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maxgraey/react-native-console-time-polyfill"
+    },
+    "license": "MIT",
+    "main": "./index.js",
+    "keywords": [
+        "react-native",
+        "polyfill",
+        "console",
+        "time",
+        "performance",
+        "measurement"
+    ],
+    "peerDependencies": {
+        "react-native": ">=0.40.0",
+        "react": ">=15.4.0"
+    },
+    "nativePackage": true
+}
