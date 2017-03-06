@@ -20,7 +20,7 @@ console.timeEnd(label);
 ### Parameters
 
 
-*** label ***
+***label***
 
 The name to give the new timer. This will identify the timer; use the same name when calling ***console.timeEnd()*** to stop the timer and get the time output to the console.
 

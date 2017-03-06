@@ -4,7 +4,7 @@
     "description": "console.time and console.timeEnd polyfill for react-native",
     "repository": {
         "type": "git",
-        "url": "https://github.com/maxgraey/react-native-console-time-polyfill"
+        "url": "https://github.com/MaxGraey/react-rative-console-time-polyfill"
     },
     "license": "MIT",
     "main": "./index.js",
