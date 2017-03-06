@@ -5,11 +5,11 @@ const PerformanceNow = global.nativePerformanceNow || global.performanceNow || f
 
 let startTimes = {};
 
-console.time = console.time || label => {
+console.time = console.time || (label => {
     startTimes[label] = PerformanceNow();
-};
+});
 
-console.timeEnd = console.timeEnd || label => {
+console.timeEnd = console.timeEnd || (label => {
     let endTime = PerformanceNow();
     if (startTimes[label]) {
         let delta = endTime - startTimes[label];
@@ -18,4 +18,4 @@ console.timeEnd = console.timeEnd || label => {
     } else {
         console.warn(`Warning: No such label '${label}' for console.timeEnd()`);
     }
-};
+});
