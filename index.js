@@ -22,8 +22,9 @@ console.timeEnd = console.timeEnd || (label => {
 });
 
 console.count = console.count || ((label = '<no label>') => {
-	if (!counts[label])
+    if (!counts[label])
         counts[label] = 0;
-	counts[label]++;
+	
+    counts[label]++;
     console.log(`${label}: ${counts[label]}`);
 });
