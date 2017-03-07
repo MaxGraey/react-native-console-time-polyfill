@@ -1,5 +1,5 @@
 {
-    "version": "0.0.5",
+    "version": "0.0.6",
     "name": "react-native-console-time-polyfill",
     "description": "console.time and console.timeEnd polyfill for react-native",
     "repository": {
@@ -14,7 +14,8 @@
         "console",
         "time",
         "performance",
-        "measurement"
+        "measurement",
+        "count"
     ],
     "peerDependencies": {
         "react-native": ">=0.40.0",

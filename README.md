@@ -1,6 +1,8 @@
 ## react-native-console-time-polyfill
 
-Starts a timer you can use to track how long an operation takes. When you call console.timeEnd() with the same name, the react-native will output the time, in milliseconds, that elapsed since the timer was started.
+Starts a timer you can use to track how long an operation takes. When you call ***console.timeEnd()*** with the same name, the react-native will output the time, in milliseconds, that elapsed since the timer was started.
+
+Also you can use ***console.count()*** for determine number of function calls.
 
 ### Installation
 
@@ -15,16 +17,19 @@ npm install react-native-console-time-polyfill --save
 ```javascript
 console.time(label);
 console.timeEnd(label);
+
+console.count(label);
 ```
 
 ### Parameters
 
-
 ***label***
 
-The name to give the new timer. This will identify the timer; use the same name when calling ***console.timeEnd()*** to stop the timer and get the time output to the console.
+The name to give the new timer or counter. This will identify the timer or counter.
 
-### <a name="Usage">Usage</a>
+Use the same name when calling ***console.timeEnd()*** to stop the timer and get the time output to the console.
+
+### Usage
 
 Use the following code:
 
@@ -39,6 +44,13 @@ class Example extends Component {
         // "some slow initializaton code"
         console.timeEnd('init');
     }
+
+    render() {
+        console.count('render calls');
+        return (
+            <Text>some text</Text>;
+        );
+    }
 }
 ```
 
@@ -46,4 +58,5 @@ class Example extends Component {
 
 ```
 init: 200ms
+render calls: 2
 ```
