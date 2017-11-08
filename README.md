@@ -6,10 +6,16 @@ Also you can use ***console.count()*** for determine number of function calls.
 
 ### Installation
 
-Install library from `npm`
+Install library from **npm**
 
 ```bash
 npm install react-native-console-time-polyfill --save
+```
+
+or **yarn**
+
+```bash
+yarn add react-native-console-time-polyfill
 ```
 
 ### Syntax
@@ -34,8 +40,10 @@ Use the same name when calling ***console.timeEnd()*** to stop the timer and get
 Use the following code:
 
 ```javascript
+// in your root javascript file
 import 'react-native-console-time-polyfill';
 
+// now you can use polyfill in your components
 class Example extends Component {
     constructor(props) {
         super(props);
