@@ -1,5 +1,5 @@
 {
-  "version": "0.0.6",
+  "version": "1.0.0",
   "name": "react-native-console-time-polyfill",
   "description": "console.time and console.timeEnd polyfill for react-native",
   "repository": {
