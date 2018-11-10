@@ -1,8 +1,9 @@
 'use strict'
 
 const PerformanceNow =
-  global.nativeQPLTimestamp   ||
-  global.nativePerformanceNow ||
+  global.performanceNow ||
+  global.nativeQPLTimestamp ||
+  global.nativePerformanceNow  ||
   require('fbjs/lib/performanceNow');
 
 const DEFAULT_LABEL = 'default';
