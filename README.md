@@ -70,6 +70,6 @@ class Example extends Component {
 ### Output
 
 ```
-init: 200ms
-render calls: 2
+Example init: 200ms
+Example.render calls: 2
 ```
