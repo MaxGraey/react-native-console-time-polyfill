@@ -1,6 +1,6 @@
 ## react-native-console-time-polyfill
 
-Starts a timer you can use to track how long an operation takes. When you call ***console.timeEnd()*** with the same name, the react-native will output the time, in milliseconds, that elapsed since the timer was started.
+Starts a timer you can use to track how long an operation takes. When you call ***console.timeEnd()/console.timeLog()*** with the same name, the react-native will output the time, in milliseconds, that elapsed since the timer was started.
 
 Also you can use ***console.count()*** and ***console.countReset()*** for determine number of function calls.
 
@@ -9,7 +9,7 @@ Also you can use ***console.count()*** and ***console.countReset()*** for determ
 Install library from **npm**
 
 ```bash
-npm install react-native-console-time-polyfill --save
+npm install --save react-native-console-time-polyfill
 ```
 
 or **yarn**
@@ -22,6 +22,7 @@ yarn add react-native-console-time-polyfill
 
 ```javascript
 console.time(label);
+console.timeLog(label);
 console.timeEnd(label);
 
 console.count(label);
