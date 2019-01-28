@@ -13,8 +13,8 @@ let counts     = {};
 let startTimes = {};
 
 console.time    = console.time    || ((label = DEFAULT_LABEL) => { startTimes[label] = PerformanceNow() });
-console.timeLog = console.timeLog || ((label = DEFAULT_LABEL) => timeRecord(label));
-console.timeEnd = console.timeEnd || ((label = DEFAULT_LABEL) => timeRecord(label, true));
+console.timeLog = console.timeLog || ((label = DEFAULT_LABEL, desc) => timeRecord(label, desc));
+console.timeEnd = console.timeEnd || ((label = DEFAULT_LABEL) => timeRecord(label, undefined, true));
 
 console.count = console.count || ((label = DEFAULT_LABEL) => {
   if (!counts[label]) {
@@ -32,12 +32,16 @@ console.countReset = console.countReset || ((label = DEFAULT_LABEL) => {
   }
 });
 
-function timeRecord(label, final) {
+function timeRecord(label, desc, final) {
   const endTime = PerformanceNow();
   const startTime = startTimes[label];
   if (startTime) {
     const delta = endTime - startTime;
-    console.log(`${label}: ${delta.toFixed(DEFAULT_PREC)}ms`);
+    if (desc) {
+      console.log(`${label}: ${delta.toFixed(DEFAULT_PREC)}ms ${desc}`);
+    } else {
+      console.log(`${label}: ${delta.toFixed(DEFAULT_PREC)}ms`);
+    }
     if (final) delete startTimes[label];
   } else {
     console.warn(`Timer '${label}' does not exist`);
