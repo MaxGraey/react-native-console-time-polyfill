@@ -2,7 +2,6 @@
 
 const PerformanceNow =
   global.performanceNow ||
-  global.nativeQPLTimestamp ||
   global.nativePerformanceNow  ||
   require('fbjs/lib/performanceNow');
 
