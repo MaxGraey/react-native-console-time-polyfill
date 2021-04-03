@@ -1,9 +1,19 @@
 'use strict'
 
 const PerformanceNow =
+  (global.performance && global.performance.now) ||
   global.performanceNow ||
-  global.nativePerformanceNow  ||
-  require('fbjs/lib/performanceNow');
+  global.nativePerformanceNow ||
+  (
+    function () {
+      let fbjs
+      try {
+        fbjs = require('fbjs/lib/performanceNow');
+      } catch (e) {
+      }
+      return fbjs;
+    }
+  )();
 
 const DEFAULT_LABEL = 'default';
 const DEFAULT_PREC  = 3;
