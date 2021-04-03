@@ -3,17 +3,9 @@
 const PerformanceNow =
   (global.performance && global.performance.now) ||
   global.performanceNow ||
-  global.nativePerformanceNow ||
-  (
-    function () {
-      let fbjs
-      try {
-        fbjs = require('fbjs/lib/performanceNow');
-      } catch (e) {
-      }
-      return fbjs;
-    }
-  )();
+  global.nativePerformanceNow || (() => { try {
+    var now = require('fbjs/lib/performanceNow')
+  } finally { return now }})();
 
 const DEFAULT_LABEL = 'default';
 const DEFAULT_PREC  = 3;
