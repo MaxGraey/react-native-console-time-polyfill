@@ -13,6 +13,8 @@ const DEFAULT_PREC  = 3;
 let counts     = {};
 let startTimes = {};
 
+const fixed = n => Math.trunc(n) === n ? n + '' : n.toFixed(DEFAULT_PREC);
+
 console.time    = console.time    || ((label = DEFAULT_LABEL) => { startTimes[label] = PerformanceNow() });
 console.timeLog = console.timeLog || ((label = DEFAULT_LABEL, desc) => timeRecord(label, desc));
 console.timeEnd = console.timeEnd || ((label = DEFAULT_LABEL) => timeRecord(label, undefined, true));
@@ -39,9 +41,9 @@ function timeRecord(label, desc, final) {
   if (startTime) {
     const delta = endTime - startTime;
     if (desc) {
-      console.log(`${label}: ${delta.toFixed(DEFAULT_PREC)}ms ${desc}`);
+      console.log(`${label}: ${fixed(delta)}ms ${desc}`);
     } else {
-      console.log(`${label}: ${delta.toFixed(DEFAULT_PREC)}ms`);
+      console.log(`${label}: ${fixed(delta)}ms`);
     }
     if (final) delete startTimes[label];
   } else {
