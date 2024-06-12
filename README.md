@@ -42,29 +42,26 @@ Use the same name when calling ***console.timeEnd()*** to stop the timer and get
 Use the following code:
 
 ```javascript
-// in your root javascript file
+// in your root javascript / typescript file
 import 'react-native-console-time-polyfill';
 
 // now you can use polyfill in your components
-class Example extends Component {
-  constructor(props) {
-    super(props);
+export default function SomeComponent({ children, ...props }) => {
+  useEffect(() => {
+    console.time('SomeComponent(init)')
+    // "some slow initialization code"
+    console.timeEnd('SomeComponent(init)')
 
-    console.time(`${this.constructor.name} init`);
-    // "some slow initializaton code"
-    console.timeEnd(`${this.constructor.name} init`);
-  }
+    return () => {
+      console.countReset('SomeComponent(render) calls')
+    }
+  }, [])
 
-  componentWillUnmount() {
-    console.countReset(`${this.constructor.name}.render calls`);
-  }
+  useEffect(() => {
+    console.count('SomeComponent(render) calls')
+  })
 
-  render() {
-    console.count(`${this.constructor.name}.render calls`);
-    return (
-      <Text>some text</Text>;
-    );
-  }
+  return <View {...props}>{ children }</View>
 }
 ```
 
