@@ -43,11 +43,11 @@ Use the following code:
 
 ```javascript
 // in your root javascript / typescript file
-import 'react-native-console-time-polyfill';
+import 'react-native-console-time-polyfill'
 
 // now you can use polyfill in your components
 export default function SomeComponent({ children, ...props }) => {
-  useEffect(() => {
+  useEffect(() => { // or useLayoutEffect
     console.time('SomeComponent(init)')
     // "some slow initialization code"
     console.timeEnd('SomeComponent(init)')
