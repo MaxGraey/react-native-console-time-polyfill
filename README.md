@@ -48,9 +48,9 @@ import 'react-native-console-time-polyfill'
 // now you can use polyfill in your components
 export default function SomeComponent({ children, ...props }) => {
   useEffect(() => { // or useLayoutEffect
-    console.time('SomeComponent(init)')
+    console.time('SomeComponent(init) time')
     // "some slow initialization code"
-    console.timeEnd('SomeComponent(init)')
+    console.timeEnd('SomeComponent(init) time')
 
     return () => {
       console.countReset('SomeComponent(render) calls')
@@ -68,6 +68,6 @@ export default function SomeComponent({ children, ...props }) => {
 ### Output
 
 ```
-Example init: 200ms
-Example.render calls: 2
+SomeComponent(init) time: 200ms
+SomeComponent(render) calls: 2
 ```
