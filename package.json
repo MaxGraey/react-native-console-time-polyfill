@@ -8,6 +8,9 @@
   },
   "license": "MIT",
   "main": "./index.js",
+  "sideEffects": [
+    "./index.js"
+  ],
   "keywords": [
     "react-native",
     "polyfill",
